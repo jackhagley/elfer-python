@@ -1,4 +1,7 @@
 #Deck Class
+import random
+import constants as c
+
 class Deck:
     def __init__(self):
         """
@@ -6,7 +9,7 @@ class Deck:
         """
         #Storage for the cards
         self.cards = list()
-        for suit in SUITS:
+        for suit in c.suits:
             for value in range(1,21):
                 self.cards.append(f"{suit}{value}")
         random.shuffle(self.cards)

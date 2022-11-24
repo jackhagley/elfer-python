@@ -1,3 +1,5 @@
+import constants as c
+
 #Player Class
 class Player:
     def __init__(self, name_):
@@ -17,7 +19,7 @@ class Player:
 
     def show_hand(self):
         """
-        DEBUG function that prints the Player’s cards
+        c.DEBUG function that prints the Player’s cards
         'Lay your hand on the table'
         """
         print(f"{self.name}’s hand: {self.hand}")
@@ -27,13 +29,13 @@ class Player:
         The Player takes a card from the Deck
         This is used to deal, but the Players take turns to take cards to make their hands
         """
-        if (DEBUG):
+        if (c.DEBUG):
             print(f"{self.name} gets {card}")
         self.hand.add(card)
 
     def _print(self):
         """
-        DEBUG function in case you need to know the Player name
+        c.DEBUG function in case you need to know the Player name
         """
         print( str(self.name) )
         pass
@@ -55,14 +57,14 @@ class Player:
             self.pickup_counter = 0 # Players cannot pick up on turns they play
 
             #if they play their last card they win
-            if (DEBUG):
+            if (c.DEBUG):
                 print(f"{self.name} has {len(self.hand)} cards left")
             if len(self.hand)==0:
-                if (DEBUG):
+                if (c.DEBUG):
                     print("game_over")
                 game.end_game(self)
         else:
-            if (DEBUG):
+            if (c.DEBUG):
                 # if you ever see this, something has gone badly wrong
                 print(f"{self.name} is trying to play {card} (not in hand) ")
 
@@ -92,7 +94,7 @@ class Player:
 
         if len(possible_moves)>1:
 
-            if (DEBUG):
+            if (c.DEBUG):
                 print(f"{self.name} has these moves: {possible_moves}")
 
             """
@@ -143,7 +145,7 @@ class Player:
 
             #no cards left to pick up in the deck
             if not game.still_has_cards():
-                if (DEBUG):
+                if (c.DEBUG):
                     print("no cards left")
                 game.next_turn()#can only pass
             pass
